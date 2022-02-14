@@ -1,0 +1,208 @@
+.header {
+  position: relative;
+  background: #fff;
+}
+body {
+  padding-top: 32px;
+}
+.nav {
+  background: #fff;
+  position: fixed;
+  padding: 0.5em;
+  //height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 5;
+}
+.nav--logo {
+  color: $theme-800;
+  display: block;
+  white-space: nowrap;
+  font-weight: bold;
+  padding: .5em 1.25em .5em 1em;
+  border-radius: 1.5em;
+  text-decoration: none;
+  line-height: 28px;
+  max-width: 50%;
+
+  &:hover, &:focus {
+    background: $theme-50;
+    color: $theme-900;
+  }
+}
+.nav--inner {
+  background: $theme-100;
+  margin: 0.5em -.5em 0;
+}
+.collapse {
+  display: none;
+}
+.nav--toggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+
+  &:checked {
+    ~ .nav--toggler {
+      .nav--toggler-open {
+        display: block;
+      }
+      .nav--toggler-closed {
+        display: none;
+      }
+    }
+    ~ .collapse {
+      display: block;
+    }
+  }
+}
+.nav--toggler {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  cursor: pointer;
+
+  .nav--toggler-open {
+    display: none;
+  }
+  .nav--toggler-closed {
+    display: block;
+  }
+}
+
+
+.nav-wrapper {
+  margin: 0;
+  list-style: none;
+  align-items: center;
+  padding: 1em;
+}
+.nav-item {
+  position: relative;
+  display: block;
+  padding-right: 0.5em;
+
+  &.active {
+    > .nav-link {
+      font-weight: bold;
+      color: $theme-800;
+    }
+  }
+
+  &:focus, &:hover {
+    > .nav-link {
+      color: $theme-800;
+      text-decoration: underline;
+    }
+
+    > ul {
+      display: block;
+    }
+  }
+}
+.nav-minicart {
+  padding-right: 0.5em;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.67em;
+  color: $gray-800;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav--right {
+  //margin-top: 1rem;
+}
+
+@media all and (min-width: $bp-medium) {
+  body {
+    padding-top: 0;
+  }
+  .nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: $container-width + px;
+    margin: 0 auto;
+    padding: 0.5rem;
+  }
+  .nav--toggle:checked ~ .nav--inner.collapse {
+    display: flex;
+  }
+  .nav--inner {
+    margin: 0;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+  }
+  .collapse {
+    display: flex;
+    width: 100%;
+  }
+  .nav-wrapper {
+    display: flex;
+    margin: 0;
+    list-style: none;
+    padding: 0 0 0 1em;
+    align-items: center;
+  }
+  .nav--right {
+    margin-top: 0;
+    margin-left: auto;
+  }
+  .nav--toggler {
+    display: none;
+  }
+
+  .nav-link {
+    padding: 1.33em 0.67em;
+  }
+
+  .nav-item ul {
+    display: none;
+    position: absolute;
+    padding-left: 0;
+
+    background: $white;
+    transition: all 0.5s;
+    margin-top: -0.25em;
+
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.125);
+    border: 1px solid $theme-100;
+    min-width: 200px;
+    z-index: 101; // 1 more than minicart, to allow submenus to show before that
+
+    .nav-item {
+      display: block;
+      padding: 0;
+      width: 100%;
+
+      &:first-child {
+        .nav-link {
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+        }
+      }
+      &:last-child {
+        .nav-link {
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+      }
+    }
+    .nav-link {
+      padding: 0.67em;
+      &:hover, &:focus {
+        background-color: $theme-50;
+        text-decoration: none;
+      }
+    }
+  }
+}

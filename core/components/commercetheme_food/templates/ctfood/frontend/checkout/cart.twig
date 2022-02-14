@@ -1,0 +1,31 @@
+<div class="c-checkout c-cart c-checkout-cart">
+
+    <div class="cart--inner">
+        <h2 class="cart-title">
+            {{ lex('checkout.step_cart') }}
+        </h2>
+
+{#        {% if items|length > 0 %}#}
+{#            <p class="cart-total-items">#}
+{#                {{ lex('commerce.order.item_count', {quantity: order.total_quantity}) }}#}
+{#            </p>#}
+{#        {% endif %}#}
+
+        <div class="cart__messages" aria-live="polite">
+            {% include 'frontend/response-messages.twig' %}
+        </div>
+
+        {% if items|length > 0 %}
+            {% include 'frontend/checkout/cart/items.twig' %}
+
+            {% include 'frontend/checkout/cart/totals.twig' %}
+
+            <form method="POST" action="{{ current_url }}" class="cart-checkout">
+                <input type="hidden" name="checkout" value="1">
+                <button class="c-button cart-checkout-button" type="submit">{{ lex('commerce.checkout') }}</button>
+            </form>
+        {% else %}
+            <p class="cart--empty">{{ lex('commerce.cart.no_items_yet') }}</p>
+        {% endif %}
+    </div>
+</div>

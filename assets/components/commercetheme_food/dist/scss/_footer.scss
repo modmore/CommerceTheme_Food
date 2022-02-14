@@ -1,0 +1,130 @@
+.footer {
+  margin-top: 3rem;
+  background: $gray-800;
+  color: $gray-300;
+  padding: 4rem 2rem;
+
+  > div {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $container-width + px;
+  }
+
+  h3 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    color: $theme-300;
+    white-space: nowrap;
+  }
+
+  a {
+    color: $gray-300;
+    text-decoration: none;
+
+    &:hover, &:focus {
+      color: $theme-300;
+    }
+  }
+}
+.footer-sections {
+  border-bottom: 1px solid $gray-600;
+  margin-bottom: 1em;
+}
+
+.footer-section {
+  margin-bottom: 3em;
+}
+
+.footer-end {
+  color: $gray-400;
+}
+
+.link-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+
+  }
+  a {
+    display: inline-block;
+    padding: 0.5em 0.5em 0.5em 0;
+  }
+}
+
+.footer-socials {
+  a {
+    display: inline-block;
+    padding: 0.5em;
+  }
+}
+
+.footer-form {
+  display: flex;
+  margin-top: 2em;
+}
+.footer-input {
+  appearance: none;
+  width: 100%;
+  min-width: 0;
+  background: $gray-50;
+  border: 1px solid transparent;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  color: $gray-900;
+  font-size: 1em;
+
+  &:focus {
+    border-color: $theme-200;
+  }
+}
+
+.footer-button-wrapper {
+  padding-left: 1em;
+}
+
+.footer-button {
+  background: $theme-complementary-500;
+  color: $white;
+  border: 1px solid $theme-complementary-600;
+  font-size: 1em;
+  margin-left: 0.75em;
+  border-radius: 0.5em;
+  padding: 0.67em 1em;
+  cursor: pointer;
+
+  &:hover, &:focus {
+    background: $theme-complementary-500;
+  }
+}
+
+@media all and (min-width: $bp-medium) {
+  .footer-section {
+    margin-bottom: 2em;
+    margin-right: 4em;
+  }
+
+  .footer-sections {
+    display: flex;
+  }
+
+  .footer-section__right {
+    margin-left: auto;
+    max-width: 50%;
+    margin-right: 0;
+  }
+
+  .footer-end {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .footer-socials {
+    margin-left: auto;
+    margin-right: -0.5em;
+  }
+}

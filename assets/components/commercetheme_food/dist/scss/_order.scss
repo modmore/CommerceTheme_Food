@@ -1,0 +1,136 @@
+
+.order-list--inner {
+  background: #fff;
+  border: 3px solid $theme-100;
+}
+
+.menu-header {
+  margin: 1em 0;
+  background: rgb(239,246,255);
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  &:after {
+    content: " ";
+    position: absolute;
+    height: 1em;
+    background: linear-gradient(180deg,$theme-50,$theme-50 25%,rgba(239,246,255,0));
+    width: 100%;
+    top: 100%;
+  }
+}
+.menu-header--name {
+  margin: 0;
+  color: $theme-900;
+}
+.menu-header--description {
+  margin: 0;
+  color: $gray-600;
+}
+
+.menu-items {
+  list-style-type: none;
+  margin: 1em 0;
+  padding: 0;
+}
+.menu-item {
+  margin: 0.5em 0;
+}
+.menu-item--inner {
+  display: flex;
+  background: #fff;
+  border: 1px solid $gray-300;
+  position: relative;
+}
+.menu-item-name {
+  margin: 0;
+  color: $theme-900;
+}
+.menu-item-price {
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
+}
+.menu-item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.menu-item-content-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+}
+.menu-item-content {
+  flex: 1;
+}
+.menu-item-description {
+  flex: 1;
+  color: $gray-600;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+.menu-item-form {
+  margin-left: auto;
+  width: 15em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.menu-item-form-add {
+  display: flex;
+  justify-content: flex-end;
+}
+.menu-item-quantity-input {
+  width: 50px;
+  padding: 0.5em 0.67em;
+  margin: .33em 0;
+  border: 1px solid $gray-200;
+  background: $theme-50;
+}
+.menu-item-add-button {
+  //background: $theme-800;
+  //color: $theme-100;
+  //border-radius: 5px;
+  padding: 0.67em 1em;
+  //font-weight: 600;
+  //white-space: nowrap;
+  //margin-left: 0.5em;
+  //cursor: pointer;
+  //border: 2px solid $white;
+  //
+  //&:hover, &:focus {
+  //  border-color: $theme-300;
+  //}
+}
+@media all and (min-width: $bp-medium) {
+  .menu-item-description {
+    margin-bottom: 0;
+  }
+  .menu-item-content {
+    display: flex;
+  }
+}
+@media all and (min-width: $bp-large) {
+  .order-container {
+    display: flex;
+  }
+
+  .order-menu {
+    flex: 1;
+  }
+  .order-list {
+    width: 300px;
+    margin-left: 1em;
+  }
+  .order-list--inner {
+    position: sticky;
+    top: 1em;
+    right: 0;
+
+  }
+
+}
+
+

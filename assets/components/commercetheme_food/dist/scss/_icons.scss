@@ -1,0 +1,30 @@
+.icon {
+  display: inline-block;
+  line-height: 1;
+  svg {
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: middle;
+  }
+
+  &.icon-1\.5x {
+    svg {
+      width: 1.5em;
+      height: 1.5em;
+    }
+  }
+
+  &.icon-2x {
+    svg {
+      width: 1.8em;
+      height: 1.8em;
+    }
+  }
+
+  &.icon-3x {
+    svg {
+      width: 2.4em;
+      height: 2.4em;
+    }
+  }
+}

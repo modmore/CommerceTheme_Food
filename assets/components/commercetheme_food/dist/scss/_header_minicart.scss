@@ -1,0 +1,223 @@
+.minicart {
+  position: relative;
+}
+.minicart__toggler {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+
+  + label {
+    cursor: pointer;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+  }
+  &:checked + label {
+
+  }
+
+  &:checked + label + .minicart__wrapper  {
+    max-height: initial;
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+    top: 100%;
+  }
+
+}
+.minicart__label {
+  background: $theme-200;
+  color: $theme-900;
+  border: 1px solid transparent;
+  padding: .5em 1.25em .5em 1em;
+  border-radius: 1.5em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+
+  &:hover, &:focus {
+    background: $theme-300;
+    border-color: $theme-500;
+    color: $theme-900;
+
+  }
+}
+.minicart__toggler-count {
+  font-weight: 500;
+  padding-left: 0.5em;
+}
+.minicart__wrapper {
+  background: $white;
+  visibility: hidden;
+  transition: all 0.5s;
+  opacity: 0;
+  height: 0;
+  top: 0;
+  margin-top: 0.35rem;
+
+  position: absolute;
+  right: 0.5em;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid $theme-100; // rgba(0, 0, 0, 0.125);
+  width: 400px;
+  z-index: 100;
+
+  //&:before {
+  //  top: -1rem;
+  //  right: 3rem;
+  //  border: 0.5rem solid transparent;
+  //  border-bottom: 0.5rem solid $theme-400;
+  //  content: " ";
+  //  height: 0;
+  //  width: 0;
+  //  position: absolute;
+  //  pointer-events: none;
+  //  margin-left: -0.5rem;
+  //}
+}
+
+//.minicart__header {
+//  font-size: 0.9rem;
+//  padding: 1rem;
+//  background: $gray-200;
+//  border-radius: 3px 3px 0 0;
+//}
+.minicart__total-label, .minicart__quantity-wrapper {
+  color: $theme-700;
+}
+.minicart__total-value {
+  color: $theme-800;
+  font-weight: bold;
+}
+
+.minicart__items {
+  list-style-type: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+  min-width: 20px;
+
+  li {
+    display: flex;
+    &:last-child {
+      margin-bottom: 0.5em;
+    }
+  }
+}
+.minicart__loading-items {
+  opacity: 1;
+  padding: 1em 1em 0.5em 1em;
+  animation: loadingFade 1s infinite;
+}
+.minicart__item, .minicart__extra {
+  padding: 0.5em 1em;
+  &:first-of-type {
+    margin-top: 0.5em;
+  }
+}
+.minicart__image {
+  max-width: 3rem;
+  max-height: 3rem;
+  margin-right: 1rem;
+  border-radius: 3px;
+}
+.minicart__content {
+  flex: 1;
+  overflow: hidden;
+}
+.minicart__name {
+  color: $gray-900;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.minicart__price {
+  color: $theme-800;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.minicart__message {
+  background: $theme-complementary-100;
+  color: $theme-800;
+  border-radius: 4px 4px 0 0;
+  font-size: 1em;
+  font-weight: 500;
+  padding: 1em;
+  margin-bottom: 0.5em;
+}
+.minicart__error {
+  background: #ffc9ce;
+}
+.minicart__extra {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.minicart__footer {
+  padding: 0.5em 1em 0.5em 0.5em;
+  background: $theme-100;
+  border-radius: 0 0 4px 4px;
+  //border-top: 1px solid rgba(0, 0, 0, 0.125);
+  display: flex;
+  align-items: center;
+}
+
+.minicart__summary {
+  color: $theme-800;
+  border-right: 0.5em;
+  border-radius: 0.5em;
+  margin-right: auto;
+  padding: 0.5em;
+}
+.minicart__cart {
+  color: $theme-800;
+  margin-left: auto;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.67em 1em;
+  border-radius: 1.5em;
+  background: transparent;
+  transition: background-color 0.5s;
+
+  &:focus, &:hover {
+    background-color: $theme-200;
+  }
+}
+.minicart__checkout {
+  display: block;
+  font-weight: bold;
+  font-size: 1em;
+  padding: 0.67em 1em;
+  border-radius: 1.5em;
+  cursor: pointer;
+
+  border: 1px solid $theme-complementary-800;
+  background: $theme-complementary-800;
+  color: $theme-complementary-100;
+  margin-left: 0.5em;
+
+  &:hover, &:focus {
+    border-color: $theme-complementary-700;
+    background: $theme-complementary-900;
+    color: $theme-complementary-100;
+  }
+}
+
+
+.minicart__extra-label {
+
+}
+.minicart__extra-value {
+  color: $theme-800;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding-left: 0.5rem;
+}
+@keyframes loadingFade {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.25; }
+  100% { opacity: 1; }
+}

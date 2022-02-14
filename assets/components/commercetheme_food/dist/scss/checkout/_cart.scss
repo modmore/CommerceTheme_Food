@@ -1,0 +1,154 @@
+.cart-title {
+  color: $theme-900;
+  margin: 0;
+}
+.cart-item {
+  border-bottom: 1px solid $gray-200;
+  padding: 0.5em 0;
+  &.no-border {
+    border-bottom: none;
+  }
+}
+.cart--inner {
+  padding: 1em;
+  position: relative;
+
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+
+//.cart-total-items {
+//  position: absolute;
+//  top: 1em;
+//  right: 1em;
+//  margin: 0;
+//}
+
+.cart-item__product {
+  display: flex;
+}
+
+.cart-item__name {
+  margin: 0;
+  font-weight: 600;
+  color: $gray-600;
+}
+.cart-item__price {
+  margin: 0 0 0 auto;
+  padding-left: 1em;
+  text-align: right;
+  font-weight: 600;
+  color: $theme-900;
+}
+.cart-item__actions {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5em;
+}
+.cart-item__quantityfld {
+  display: flex;
+  justify-content: center;
+}
+.cart-item__quantityfld_input {
+  width: 50px !important;
+  height: auto !important;
+  padding: 0.5em 0.67em;
+  margin: 0 !important;
+  border: 1px solid $gray-200;
+  background: $theme-50;
+}
+
+.cart-item__remove {
+  background: transparent;
+  border: none;
+  margin-left: .5em;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  color: $gray-400;
+
+  &:hover {
+    color: $red;
+  }
+}
+.cart-item__update {
+  background: transparent;
+  border: none;
+  margin-left: .5em;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  color: $gray-400;
+
+  &:hover {
+    color: $gray-600;
+  }
+}
+.cart-checkout {
+  margin-top: 1em;
+}
+.cart-checkout-button.c-button {
+  width: 100%;
+  margin-left: 0;
+  font-size: 16px;
+}
+
+//.cart-item__image {
+//  width: 50px;
+//  height: 50px;
+//  object-fit: cover;
+//  margin-right: 0.5em;
+//}
+
+.cart-totals {
+
+}
+.c-cart-total-item, .c-cart-total-item-even {
+  display: flex;
+  align-items: center;
+  line-height: 1.5em;
+  justify-content: flex-end;
+}
+.c-cart-totals-label {
+  color: $gray-700;
+  text-align: right;
+  flex: 1;
+}
+.c-cart-totals-value {
+  text-align: right;
+  min-width: 10em;
+  color: $theme-900;
+}
+.c-cart-totals-simple-value {
+  text-align: right;
+}
+.c-cart-totals__bold {
+  font-weight: bold;
+  color: $theme-900;
+}
+.c-cart-totals-savings {
+  color: $theme-900;
+}
+.cart-item__tax_incl {
+  font-weight: normal;
+  color: $gray-400;
+}
+#c-cart-coupon-label {
+  position: absolute;
+}
+.c-cart-coupon-form {
+
+}
+.c-coupon-field {
+  display: flex;
+}
+#c-cart-coupon {
+  flex: 1;
+  font-size: 14px;
+  margin: .33em 0 !important;
+}
+label.c-cart-coupon-label {
+  font-weight: 600 !important;
+  padding-bottom: 0.17em;
+}

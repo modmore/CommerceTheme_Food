@@ -1,0 +1,68 @@
+<div class="cart-totals">
+    {% set totalIndex = 1 %}
+
+    {% if coupon.id %}
+        <h3>{{ lex('commerce.coupon') }}</h3>
+        {% set the_discount = [] %}
+        {% if coupon.discount != 0 %}{% set the_discount = the_discount|merge([coupon.discount_formatted]) %}{% endif %}
+        {% if coupon.discount_percentage != 0 %}{% set the_discount = the_discount|merge([coupon.discount_percentage_formatted]) %}{% endif %}
+        <p>{{ lex('commerce.coupon_applied', {
+                code: coupon.code,
+                discount: the_discount|join(' + ')
+            }) }}</p>
+
+        <form method="post" action="{{ current_url }}" class="c-cart-coupon-form">
+            <input type="hidden" name="remove_coupon" value="{{ coupon.code }}">
+            <input type="submit" class="c-button" value="{{ lex('commerce.remove_coupon') }}">
+        </form>
+    {% elseif coupons_enabled %}
+        <div class="cart-item" id="cart-item-{{ item.id }}">
+            <div class="cart-item__product">
+                <div class="cart-item__name">
+                    <input type="checkbox" id="c-cart-coupon-label">
+                    <label for="c-cart-coupon-label" class="c-cart-coupon-toggler">{{ lex('commerce.do_you_have_a_coupon') }}</label>
+                    <form method="post" action="{{ current_url }}" class="c-cart-coupon-form">
+                        <label for="c-cart-coupon" class="c-cart-coupon-label">{{ lex('commerce.coupon_code') }}:</label>
+                        <div class="c-coupon-field">
+                            <input type="text" name="coupon" id="c-cart-coupon" value="" placeholder="{{ lex('commerce.coupon_placeholder') }}">
+                            <input type="submit" class="c-button" value="Check {# {{ lex('commerce.validate_coupon') }}#}">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+
+
+    {% for shipment in shipments %}
+        <div class="cart-item" id="cart-item-{{ item.id }}">
+            <div class="cart-item__product">
+                <p class="cart-item__name">
+                    {% if shipment.method.id > 0 %}
+                        {{ shipment.method.name }}
+                    {% else %}
+                        {{ lex('commerce.shipping') }}
+                    {% endif %}
+                </p>
+                <p class="cart-item__price">
+                    {{ shipment.fee_incl_tax_formatted }}
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="cart-item no-border" id="cart-item-{{ item.id }}">
+        <div class="cart-item__product">
+            <p class="cart-item__name">
+                {{ lex('commerce.total') }}
+
+                <span class="cart-item__tax_incl">{{ lex('commerce.cart.item.incl_taxes', {'tax': order.tax_formatted}) }}</span>
+            </p>
+            <p class="cart-item__price">
+                {{ order.total_formatted }}
+            </p>
+        </div>
+    </div>
+
+</div>
